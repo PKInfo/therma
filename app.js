@@ -11,6 +11,9 @@ process.on('uncaughtException', function (err) {
 	console.log(err);
 });
 
+// The port that this node.js app is listening on.
+var nodePort = 7777;
+
 // This is the node server object.
 server.on('request', function(request, response) {
 	var headers = request.headers;
@@ -60,4 +63,29 @@ server.on('request', function(request, response) {
 		};
 	};
 
-}).listen(7777);
+}).listen(nodePort);
+
+// Terminal output when launched:
+console.log(
+	'\n\n' +
+	"#######################################################"
+	+ '\n' +
+	"Therma is a node print server listening on port " + nodePort + "."
+	+ '\n' +
+	"#######################################################"
+	+ '\n\n' +
+	"Print requests are made by sending a formatted query string to the following url."
+	+ '\n\n' +
+	"URL:"
+	+ '\n' +
+	"http://raspi.local:" + nodePort + "/"
+	+ '\n\n' +
+	"Formatted Query String:"
+	+ '\n' +
+	"?printerIP=&quantity=&data1=&options1=&data2=&options2=&data3=&options3=&data4=&options4="
+	+ '\n\n' +
+	"Example URL:"
+	+ '\n' +
+	"http://raspi.local:" + nodePort + "/" + "?printerIP=192.168.77.27&quantity=1&data1=Black Beans (Prep)&options1=Medium&data2=Exp: Sat 9/3&options2=Large+BlackBackground&data3=Prep: Mon 8/29&options3=Large&data4=Justin&options4=Small"
+	+ '\n\n'
+);
