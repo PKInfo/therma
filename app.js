@@ -31,6 +31,10 @@ server.on('request', function(request, response) {
 	printerIP = theQ.printerIP ;
 	printerPort = '9100' ;
 
+	// This seperates each print job with space and a timestamp.
+	ts = (new Date()).toUTCString();
+	console.log("\n\n\n\n\n" + ts);
+
 	// Step 1: Check the printer connection.
 	// This step calls the subsquent steps.
 	check.checkConnection ();
