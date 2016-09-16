@@ -31,3 +31,21 @@ exports.sendToPrinter = (quantity) => {
 	// CLEAR the print values.
 	printer.clear();
 };
+
+// Issue the print command to the printer.
+function print (i) {
+	setTimeout(function(){
+		printer.execute();
+		++i;
+		if (i <= quantity) {
+			print(i);
+		} else {
+			clearPrint();
+		}
+	}, 750);
+};
+
+// CLEAR the print values.
+function clearPrint () {
+	printer.clear();
+};
