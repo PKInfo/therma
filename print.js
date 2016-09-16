@@ -16,20 +16,12 @@ exports.sendToPrinter = (quantity) => {
 	printer.partialCut();
 
 	// Create an index variable.
-	var i = 1 ;
+	i = 1;
 
 	// // This insures that a quantity value was sent.
 	if (quantity >= 1) {
-
-		// While Loop
-		while (i <= quantity) {
-			printer.execute();
-			i++;
-		}
+		print(i);
 	}
-
-	// CLEAR the print values.
-	printer.clear();
 };
 
 // Issue the print command to the printer.
